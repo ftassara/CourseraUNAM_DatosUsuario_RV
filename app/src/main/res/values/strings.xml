@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CourseraUNAM_DatosUsuario</string>
+    <string name="nombre">Francisco Tassara</string>
+    <string name="telefono">54123456789</string>
+    <string name="mail">mail@mail.com</string>
+    <string name="pmail">mail</string>
+    <string name="pcontacto">contacto</string>
+    <string name="ptelefono">telefono</string>
+</resources>
