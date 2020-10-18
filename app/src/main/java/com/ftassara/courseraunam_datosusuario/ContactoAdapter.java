@@ -10,28 +10,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ContactoAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
-    ArrayList<Contacto> data;
-    OnElementClickListener ELementClickListener;
-    public ContactoAdapter(ArrayList<Contacto> data,OnElementClickListener onElementClickListener) {
+    ArrayList<Mascotas> data;
+    onContactoListener mOnContactoListener;
+
+    public ContactoAdapter(ArrayList<Mascotas> data, onContactoListener listener) {
         this.data = data;
-        this.ELementClickListener = onElementClickListener;
+        this.mOnContactoListener=listener;
+
     }
 
     @NonNull
     @Override
     public ContactoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_contacto,parent,false);
-        return new ContactoViewHolder(v);
+        return new ContactoViewHolder(v,mOnContactoListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ContactoViewHolder holder, final int position) {
         //aca hago todos los setTExt en base a la posicion
-        Contacto contacto = data.get(position);
-        holder.imgFoto.setImageResource(contacto.getFoto());
-        holder.tvNombre.setText(contacto.getContacto());
-        holder.tvTelefono.setText(contacto.getTelefono());
-        holder.tvMail.setText(contacto.getMail());
+        Mascotas mascota = data.get(position);
+        holder.imgFoto.setImageResource(mascota.getFoto());
+        holder.tvNombre.setText(mascota.getNombre());
+        holder.tvTelefono.setText(mascota.getRating());
+
+
     }
 
     @Override
@@ -39,7 +42,7 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
         return data.size();
     }
 
-    interface OnElementClickListener {
-        void setElementOnClickListener(int position);
+    public interface onContactoListener{
+        void onContactoClic(int position);
     }
 }

@@ -10,10 +10,11 @@
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:text="@string/nombre"
         android:textSize="25dp"
-        android:textStyle="bold"
 
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +22,6 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="llamar"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre">
@@ -36,14 +36,13 @@
             android:id="@+id/tvTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/telefono" />
+            android:text="@string/rating" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="mail"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -54,11 +53,7 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/icons8_subir_correo_24" />
 
-        <TextView
-            android:id="@+id/tvMail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mail" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
