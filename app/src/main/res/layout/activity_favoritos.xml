@@ -4,32 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FavoritosActivity">
 
-<!--    <ListView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/lstContactos"-->
-<!--        -->
-<!--    >-->
-<!--    </ListView>-->
-<!--    Aca abajo tengo un Toolbar para cuando quiero personalizarlo-->
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?actionBarSize"-->
-<!--        android:background="?attr/colorPrimary"-->
-<!--        android:elevation="4dp"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>-->
-<!--    <include-->
-<!--        android:id="@+id/include"-->
-<!--        layout="@layout/actionbar">-->
-
-<!--    </include>-->
+    <!--    <ListView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/lstContactos"-->
+    <!--        -->
+    <!--    >-->
+    <!--    </ListView>-->
+    <!--    Aca abajo tengo un Toolbar para cuando quiero personalizarlo-->
+    <!--    <androidx.appcompat.widget.Toolbar-->
+    <!--        android:id="@+id/toolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="?actionBarSize"-->
+    <!--        android:background="?attr/colorPrimary"-->
+    <!--        android:elevation="4dp"-->
+    <!--        android:minHeight="?attr/actionBarSize"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -37,6 +32,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white">
 
@@ -58,17 +54,11 @@
                 android:textColor="@color/cardview_light_background"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imgFav"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:src="@drawable/icons8_hotel_24"
-            />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclerviewfav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

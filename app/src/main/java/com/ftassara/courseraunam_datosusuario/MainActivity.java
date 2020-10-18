@@ -1,5 +1,6 @@
 package com.ftassara.courseraunam_datosusuario;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,60 +10,74 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.concurrent.RecursiveAction;
 
-public class MainActivity extends AppCompatActivity {
-    ArrayList<Contacto> contactos;
-    private RecyclerView listaContactos;
+
+public class MainActivity extends AppCompatActivity implements ContactoAdapter.onContactoListener {
+    ArrayList<Mascotas> mMascotas;
+    private RecyclerView listaMascotas;
+    ImageView imgFav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miToolBar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(miToolBar);
-        listaContactos = (RecyclerView) findViewById(R.id.recyclerview);
+        //Defino la toolbar
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+        listaMascotas = (RecyclerView) findViewById(R.id.recyclerview);
         //Creo el Layou Manager, en este caso lineal, y lo asocio al recycler view, asi pone una abajo de otra (porque es linear)
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaContactos.setLayoutManager(llm);
+        listaMascotas.setLayoutManager(llm);
 
         initListaContactos();
         incializarAdaptador();
 
-
+        imgFav = (ImageView) findViewById(R.id.imgFav);
+        imgFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navaFAV(view);
+            }
+        });
 
 
 
     }
     public void incializarAdaptador(){
-        ContactoAdapter.OnElementClickListener ElementClickListener = new ContactoAdapter.OnElementClickListener() {
-            @Override
-            public void setElementOnClickListener(int i) {
-                Intent intent = new Intent(MainActivity.this, DetalleContacto.class);
-                intent.putExtra(getResources().getString(R.string.pcontacto),contactos.get(i).getContacto());
-                intent.putExtra(getResources().getString(R.string.ptelefono),contactos.get(i).getTelefono());
-                intent.putExtra(getResources().getString(R.string.pmail),contactos.get(i).getMail());
-                startActivity(intent);
-                finish();
-            }
-        };
-        ContactoAdapter adapter =  new ContactoAdapter(contactos,ElementClickListener);
-        listaContactos.setAdapter(adapter);
+        ContactoAdapter adapter =  new ContactoAdapter(mMascotas,this);
+        listaMascotas.setAdapter(adapter);
     }
     private void initListaContactos() {
-        contactos = new ArrayList<Contacto>();
-        contactos.add(new Contacto(R.drawable.icons8_telefono_24,"Francisco Tassara","111111","mail1@mail.com"));
-        contactos.add(new Contacto(R.drawable.icons8_telefono_24,"Fran Tassara","22222","mail2@mail.com"));
-        contactos.add(new Contacto(R.drawable.icons8_subir_correo_24,"F Tassara","33333","mail3@mail.com"));
-        contactos.add(new Contacto(R.drawable.icons8_subir_correo_24,"Francisco Tass","44444","mail4@mail.com"));
+        mMascotas = new ArrayList<Mascotas>();
+        mMascotas.add(new Mascotas(R.drawable.perro1,"Perro A","1"));
+        mMascotas.add(new Mascotas(R.drawable.perro2,"Perro B","0"));
+        mMascotas.add(new Mascotas(R.drawable.perro1,"Perro C","1"));
+        mMascotas.add(new Mascotas(R.drawable.perro2,"Perro D","0"));
+        mMascotas.add(new Mascotas(R.drawable.perro1,"Perro E","1"));
+        mMascotas.add(new Mascotas(R.drawable.perro1,"Perro F","0"));
+        mMascotas.add(new Mascotas(R.drawable.perro1,"Perro G","1"));
     }
 
+
+    @Override
+    public void onContactoClic(int i) {
+        Log.d("OnContactoClic","Boton apretad");
+//        Intent intent = new Intent(MainActivity.this, DetalleContacto.class);
+////        intent.putExtra(getResources().getString(R.string.pcontacto),contactos.get(i).getContacto());
+////        intent.putExtra(getResources().getString(R.string.ptelefono),contactos.get(i).getTelefono());
+////        intent.putExtra(getResources().getString(R.string.pmail),contactos.get(i).getMail());
+//        startActivity(intent);
+////        finish();
+    }
+
+    public void navaFAV (View v){
+        Log.d("navaFAV","Boton apretado");
+        Intent intent = new Intent(MainActivity.this, FavoritosActivity.class);
+        startActivity(intent);
+    }
 
 }

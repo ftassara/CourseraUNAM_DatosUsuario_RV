@@ -7,41 +7,60 @@
     android:layout_marginBottom="@dimen/cardview_compat_inset_shadow"
     cardview:cardCornerRadius="@dimen/cardview_default_radius">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/foto"
-            android:src="@mipmap/ic_launcher_round"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nombre"
-            android:id="@+id/cvnombre"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/telefono"
-            android:id="@+id/cvtelefono"
-            android:textSize="20dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mail"
-            android:id="@+id/cvmail"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
+            android:layout_gravity="center"
+            android:src="@drawable/perro1"
+            cardview:layout_constraintEnd_toEndOf="parent"
+            cardview:layout_constraintStart_toStartOf="parent"
+            cardview:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            cardview:layout_constraintEnd_toEndOf="@+id/foto"
+            cardview:layout_constraintStart_toStartOf="@+id/foto"
+            cardview:layout_constraintTop_toBottomOf="@+id/foto">
 
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                cardview:srcCompat="@drawable/hueso_blanco" />
 
+            <TextView
+                android:id="@+id/cvnombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/nombre"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/cvrating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                cardview:srcCompat="@drawable/icons8_dog_bone_48_yellow" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>
