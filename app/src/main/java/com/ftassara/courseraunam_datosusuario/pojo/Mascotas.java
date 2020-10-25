@@ -1,4 +1,4 @@
-package com.ftassara.courseraunam_datosusuario;
+package com.ftassara.courseraunam_datosusuario.pojo;
 
 public class Mascotas {
 

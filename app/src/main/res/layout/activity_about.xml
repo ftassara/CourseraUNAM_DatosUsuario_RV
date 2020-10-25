@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FavoritosActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.AboutActivity">
 
-    <!--    <ListView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:id="@+id/lstContactos"-->
-    <!--        -->
-    <!--    >-->
-    <!--    </ListView>-->
-    <!--    Aca abajo tengo un Toolbar para cuando quiero personalizarlo-->
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="?actionBarSize"-->
-    <!--        android:background="?attr/colorPrimary"-->
-    <!--        android:elevation="4dp"-->
-    <!--        android:minHeight="?attr/actionBarSize"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -57,15 +38,41 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewfav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+        <TextView
+            android:id="@+id/tvBio1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bio1"
+            android:textStyle="bold" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/tvBio2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bio2" />
+
+        <TextView
+            android:id="@+id/tvBio3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bio3" />
+
+        <TextView
+            android:id="@+id/tvBio4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bio4" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,13 +18,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetalleContacto"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activities.DetalleContacto"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
-            android:name=".FavoritosActivity"
-            android:parentActivityName=".MainActivity" />
-
-
+            android:name=".activities.FavoritosActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.ContactenosActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.AboutActivity"
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.ftassara.courseraunam_datosusuario;
+package com.ftassara.courseraunam_datosusuario.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ftassara.courseraunam_datosusuario.pojo.Mascotas;
+import com.ftassara.courseraunam_datosusuario.R;
+import com.ftassara.courseraunam_datosusuario.adapter.ContactoAdapter;
 
 import java.util.ArrayList;
 

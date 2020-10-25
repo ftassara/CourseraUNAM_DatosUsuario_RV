@@ -1,4 +1,4 @@
-package com.ftassara.courseraunam_datosusuario;
+package com.ftassara.courseraunam_datosusuario.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +7,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ftassara.courseraunam_datosusuario.R;
+import com.ftassara.courseraunam_datosusuario.pojo.Mascotas;
+import com.ftassara.courseraunam_datosusuario.viewholder.ContactoViewHolder;
+
 import java.util.ArrayList;
 
-public class ContactoAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
+public class MascotaAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
     ArrayList<Mascotas> data;
-    onContactoListener mOnContactoListener;
+    ContactoAdapter.onContactoListener mOnContactoListener;
 
-    public ContactoAdapter(ArrayList<Mascotas> data, onContactoListener listener) {
+    public MascotaAdapter(ArrayList<Mascotas> data, ContactoAdapter.onContactoListener listener) {
         this.data = data;
         this.mOnContactoListener=listener;
 
@@ -22,7 +26,7 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
     @NonNull
     @Override
     public ContactoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_contacto,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_fotoscontacto,parent,false);
         return new ContactoViewHolder(v,mOnContactoListener);
     }
 
@@ -31,7 +35,6 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoViewHolder> {
         //aca hago todos los setTExt en base a la posicion
         Mascotas mascota = data.get(position);
         holder.imgFoto.setImageResource(mascota.getFoto());
-        holder.tvNombre.setText(mascota.getNombre());
         holder.tvTelefono.setText(mascota.getRating());
 
 

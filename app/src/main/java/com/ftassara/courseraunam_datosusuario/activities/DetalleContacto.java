@@ -1,4 +1,4 @@
-package com.ftassara.courseraunam_datosusuario;
+package com.ftassara.courseraunam_datosusuario.activities;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import com.ftassara.courseraunam_datosusuario.R;
 
 import org.w3c.dom.Text;
 

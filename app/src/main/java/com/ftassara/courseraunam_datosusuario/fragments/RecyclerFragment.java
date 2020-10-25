@@ -1,54 +1,48 @@
-package com.ftassara.courseraunam_datosusuario;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.ftassara.courseraunam_datosusuario.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.ftassara.courseraunam_datosusuario.R;
+import com.ftassara.courseraunam_datosusuario.activities.FavoritosActivity;
+import com.ftassara.courseraunam_datosusuario.activities.MainActivity;
+import com.ftassara.courseraunam_datosusuario.adapter.ContactoAdapter;
+import com.ftassara.courseraunam_datosusuario.pojo.Mascotas;
 
 import java.util.ArrayList;
 
-
-public class MainActivity extends AppCompatActivity implements ContactoAdapter.onContactoListener {
-    ArrayList<Mascotas> mMascotas;
+public class RecyclerFragment extends Fragment implements ContactoAdapter.onContactoListener {
     private RecyclerView listaMascotas;
-    ImageView imgFav;
+    ArrayList<Mascotas> mMascotas;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //Defino la toolbar
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(myToolbar);
-        listaMascotas = (RecyclerView) findViewById(R.id.recyclerview);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        return super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.fragment_recycler,container,false);
+        listaMascotas = (RecyclerView) v.findViewById(R.id.recyclerview);
         //Creo el Layou Manager, en este caso lineal, y lo asocio al recycler view, asi pone una abajo de otra (porque es linear)
-        LinearLayoutManager llm = new LinearLayoutManager(this);
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         listaMascotas.setLayoutManager(llm);
 
+
         initListaContactos();
         incializarAdaptador();
-
-        imgFav = (ImageView) findViewById(R.id.imgFav);
-        imgFav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navaFAV(view);
-            }
-        });
-
-
-
+        return v;
     }
+
     public void incializarAdaptador(){
-        ContactoAdapter adapter =  new ContactoAdapter(mMascotas,this);
+        ContactoAdapter adapter =  new ContactoAdapter(mMascotas, this);
         listaMascotas.setAdapter(adapter);
     }
     private void initListaContactos() {
@@ -74,10 +68,5 @@ public class MainActivity extends AppCompatActivity implements ContactoAdapter.o
 ////        finish();
     }
 
-    public void navaFAV (View v){
-        Log.d("navaFAV","Boton apretado");
-        Intent intent = new Intent(MainActivity.this, FavoritosActivity.class);
-        startActivity(intent);
-    }
 
 }

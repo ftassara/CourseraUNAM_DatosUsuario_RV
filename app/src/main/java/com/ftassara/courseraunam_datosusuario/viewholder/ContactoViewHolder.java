@@ -1,4 +1,4 @@
-package com.ftassara.courseraunam_datosusuario;
+package com.ftassara.courseraunam_datosusuario.viewholder;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.ftassara.courseraunam_datosusuario.R;
+import com.ftassara.courseraunam_datosusuario.adapter.ContactoAdapter;
 
 public class ContactoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
